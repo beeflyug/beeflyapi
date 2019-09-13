@@ -1,1 +1,2 @@
 port=8081  (change this to put your suitable port number)
+DATABASE_URL='postgres://user@database-host:5432/database'
