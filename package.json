@@ -7,10 +7,13 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon app.js",
-    "serve": "node app.js"
+    "serve": "node app.js",
+    "test": "jest  --collectCoverage"
   },
   "devDependencies": {
-    "nodemon": "^1.19.2"
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.2",
+    "superset": "^1.0.1"
   },
   "dependencies": {
     "@hapi/joi": "^16.0.0",
@@ -20,5 +23,12 @@
     "pg": "^7.12.1",
     "pg-hstore": "^2.3.3",
     "sequelize": "^5.18.4"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ]
   }
 }
