@@ -1,6 +1,6 @@
-language: nodejs
+language: node_js
 node_js:
-  - "11.10.1"
+  - "11"
 
 cache:
   directories:
@@ -10,11 +10,11 @@ services:
   - postgresql
 
 install:
-  - npm i yarn
-  - yarn  --ignore-engines
+  - npm install yarn
+  - yarn install --ignore-engines
 
 before_script:
-   - psql -c 'create database beeflyug_test;' -U postgres
+  - psql -c 'create database beeflyug_test;' -U postgres
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build

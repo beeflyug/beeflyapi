@@ -3,17 +3,21 @@ const express = require('express')
 const sequelize = require('./database/db')
 const app = express()
 const bodyParser = require('body-parser')
+const authRoutes = require('./routes/auth.routes')
 const {port} = process.env||8081
 
-app.use(bodyParser)
+app.use(bodyParser.json())
+app.use('/auth', authRoutes)
 
 sequelize.sync()
          .then(() => {
              app.listen(port, (err) => {
                if(err) throw err
-               console.log(`Server running at http://localhost:${port}`)
+            //    console.log(`Server running at http://localhost:${port}`)
             })
          })
          .catch(error => {
              console.error(error)
          })
+
+module.exports = app
